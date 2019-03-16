@@ -23,3 +23,4 @@ p(k)=p1-cbp1;
 end;
 k=2:N;
 plot(k,s,'r',k,Y,'g',k,x,'b');
+2222
