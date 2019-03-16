@@ -1,0 +1,25 @@
+N=200;
+x=zeros(1,N);
+Y=zeros(1,N);
+p=zeros(1,N);
+x(1)=24.9;
+p1=10;
+a=1;
+for k =2:N
+w=randn(1,N);
+V=randn(1,N);
+q1=std(V);
+Rvv=q1.^2;
+q2=std(w);
+Rww=q2.^2;
+x(k)=ax(k-1)+w;
+c=1;
+Y(k)=cx(k)+V;
+s(k)=ax(k-1);
+p1=a.^2p(k-1)+Rww;
+b=cp1/(c.^2p1+Rvv);
+x(k)=as(k)+b(Y(k)-acs(k));
+p(k)=p1-cbp1;
+end
+k=2:N;
+plot(k,s,'r',k,Y,'g',k,x,'b');
