@@ -20,6 +20,6 @@ p1=a.^2p(k-1)+Rww;
 b=cp1/(c.^2p1+Rvv);
 x(k)=as(k)+b(Y(k)-acs(k));
 p(k)=p1-cbp1;
-end
+end;
 k=2:N;
 plot(k,s,'r',k,Y,'g',k,x,'b');
