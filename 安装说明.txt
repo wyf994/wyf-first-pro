@@ -1,0 +1,2 @@
+8.02不需要license只需用SSQ_文件中的一个UIR文件替代（c盘）安装文件夹中的同名文件就可以了，
+C:\Program Files\CarSim802_Prog\SGUI_LIB
