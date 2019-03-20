@@ -1,0 +1,48 @@
+#include<iostream>
+#include<string>
+#include<Eigen/Dense>
+
+using namespace Eigen;
+int main()
+{   std::string isbn_book;
+    int price_book;
+    int j,sum=0;
+    std::cin>>isbn_book>>price_book;
+
+        int a = 3;
+        int count = 140;
+        int  average_book;
+
+        if (isbn_book == "07201") {
+            a++;
+            count += price_book;
+            average_book = count / a;
+
+            std::cout << "the number of 07201 is " << a << std::endl;
+            std::cout << "tne average price of 07201 is " << average_book << std::endl;
+        }
+
+            for(j=0;j<=10;j++)
+            {
+                sum+=j;
+
+            }
+            std::cout<<sum<<std::endl;
+            int v=1;
+            int sum2=0;
+            while(v<=10)
+            {
+                sum2+=v;
+                v++;
+            }
+            std::cout<<sum2<<std::endl;
+            int value=0,sum3=0;
+            while(std::cin>>value)
+            {
+               sum3+=value;
+            }
+            std::cout<<sum3<<std::endl;
+
+        return 0;//返回0值
+
+}
