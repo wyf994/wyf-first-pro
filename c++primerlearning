@@ -4,7 +4,7 @@
 
 using namespace Eigen;
 int main()
-{   std::string isbn_book;
+{   /*std::string isbn_book;
     int price_book;
     int j,sum=0;
     std::cin>>isbn_book>>price_book;
@@ -20,9 +20,9 @@ int main()
 
             std::cout << "the number of 07201 is " << a << std::endl;
             std::cout << "tne average price of 07201 is " << average_book << std::endl;
-        }
+        }*/
 
-            for(j=0;j<=10;j++)
+          /*  for(j=0;j<=10;j++)
             {
                 sum+=j;
 
@@ -43,6 +43,83 @@ int main()
             }
             std::cout<<sum3<<std::endl;
 
-        return 0;//返回0值
+        return 0;//返回0值*/
+ /*int m = 1;
+    int val;
+    int secval;
+    while (std::cin >> val) {
+
+        while (std::cin >> secval) {
+            if (secval == val) {
+                m++;
+            } else {
+                std::cout << val << " " << "occur" << " " << m << " " << "times" << std::endl;
+                val = secval;
+                m = 1;
+            }
+        }
+        std::cout << val << " " << "occur" << " " << m << " " << "times" << std::endl;
+    }
+     Sales_item book;
+     std::cin>>book;
+     std::cout<<book<<std::endl;
+     Sales_item item1,item2;
+     std::cin>>item1>>item2;
+     std::cout<<item1+item2<<std::endl;*/
+    /*std::string isbn1, isbn2;
+    std::cin >> isbn1>> isbn2;
+
+
+    int m,n,price1,price2;
+    if (isbn1 == "0-201-78345-X")
+    {
+         m = 3;
+        price1 = 20;
+        std::cout<<"en"<<std::endl;
+    }
+    if (isbn2 == "0-201-78345-X")
+    {
+         n = 2;
+        price2 = 30;
+        std::cout<<"en2"<<std::endl;
+    }
+   int sum=m*price1+n*price2;
+
+    std::cout<<m<<n<<price1<<price2<<sum<<std::endl;
+    return 0;*/
+   /* std::string isbn[10];
+    for(int i=0;i<10;i++)
+    {
+        std::cin>>isbn[i];
+    }
+    for( int i=0;i<10;i++)
+    {
+
+        for(int t=i-1;t>-1;t--)//检查代码设计存在问题
+        {
+            if(isbn[t]==isbn[i])
+            {
+                i++;
+
+            }
+
+        }//代码设计存在问题；
+        if(i==10)
+        {
+            std::cout<<"test successful"<<std::endl;
+            return 1;
+        }
+        int m = 1;
+        for (int n = i + 1; n < 10; n++)
+        {
+            if (isbn[n] == isbn[i])
+            {
+                m++;
+            }
+        }
+        std::cout << isbn[i] << "occur"<< m << "times " << std::endl;//需要debug一下
+    }
+    return 0;*/
+
 
 }
