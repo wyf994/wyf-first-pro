@@ -103,7 +103,7 @@ int main()
 
             }
 
-        }//代码设计存在问题；
+        }//代码设计存在问题；需要进行修改，测试不成功
         if(i==10)
         {
             std::cout<<"test successful"<<std::endl;
