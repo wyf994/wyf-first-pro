@@ -1,0 +1,193 @@
+/*int fact(int val)
+{
+    int ret = 1;
+    while (val > 1)
+        ret *= val--;
+    return ret;
+}
+ int main()
+ {int j = fact(5);
+ std::cout << "5! is " << j << std::endl;
+ return 0;}*/
+/*
+int fact(int val)
+{
+    int a=5;
+    static int sum =0;
+        sum+=val;
+        return sum;
+}
+int main() {
+    for (int i = 0; i < 50; i++) {
+        std::cout << fact(i) << std::endl;
+    }
+    return 0;
+};
+*/
+/*class Sales_data
+{
+public:
+  std::string bookNo;
+  unsigned int number = 0;
+  unsigned int price=0;
+  unsigned int total=0;
+  unsigned int average_price=0;
+};
+ int main()
+ {Sales_data data1, data2;
+    std::cin >> data1.bookNo >> data1.number >> data1.price;
+    data1.total = data1.number * data1.price;
+    data1.average_price = data1.total / data1.number;
+    std::cin >> data2.bookNo >> data2.number >> data2.price;
+    data2.total = data2.number * data2.price;
+    data2.average_price = data2.total / data2.number;
+    if(data1.bookNo==data2.bookNo)
+    {
+      unsigned int price_total = data1.total + data2.total;
+      unsigned int number_total = data1.number + data2.number;
+      unsigned int average_total = price_total/number_total;
+    if(number_total==0)
+    {
+         std::cerr<<"no sales"<<std::endl;
+         return -1;
+    }
+
+    }
+
+if(read(std::cin,total))
+{
+    while (read(std::cin, trans))
+    {
+        if (total.isbn() == trans.isbn())
+        {
+            total.combine(trans);
+        }
+        else
+            {
+            print(std::cout, total) << std::endl;
+            total = trans;
+            }
+    }
+    print(std::cout,total)<<std::endl;
+}
+else
+{
+    std::cerr<<"No data?!"<<std::endl;
+}*/
+/*int fact(int& val)
+{
+    int sum=1;
+   while(val>1)
+   {
+       sum*=val;
+       val--;
+   }
+
+   return sum;
+
+}
+int main()
+{  int i;
+    std::cin>>i;
+    std::cout<<fact(i)<<std::endl;
+
+    return 0;
+
+}*/
+/*int main()
+{
+    const int a=0;
+    int b=a;
+    const int* p=&a;
+   p=&b;
+   int* const c=&b;
+   *c=12;
+   std::cout<<a <<b<< c <<p<<std::endl;
+
+   return 0;
+
+}*/
+/*bool check_number(const  std::string& t)
+{
+    for(int i=0;i<t.length();i++)
+        if(t[i]>='A'&&t[i]<='Z')
+        {
+            return true;
+        }
+        else
+            return false;
+}
+void rectify_number( std::string & p)
+{
+    for(int i=0;i<p.length();i++)
+    {
+        if(p[i]>='A'&&p[i]<='Z')
+        {
+
+           p[i] = p[i]+32;
+        }
+
+    }
+}
+int main() {
+    std::string s;
+    std::cin >> s;
+    if (check_number(s)) {
+        std::cout << "hello world" << std::endl;
+    }
+    rectify_number(s);
+    std::cout << s << std::endl;
+    return 0;
+}*/
+/*int bigger_number(  int a, const int* p)
+{
+    if(a>=*p)
+    {
+        return a;
+    }
+    else
+        return *p;
+}
+int main(int argc,char*argv[])
+{    int A ,B;
+    std::cin>>A>>B;
+    std::cout<<bigger_number(A,&B)<<std::endl;
+    return 0;
+}*/
+/*int factorial(int val)
+        {
+    if(val > 1)
+         return factorial(val-1)*val;
+    return 1;
+        }
+int main()
+{
+    int number;
+    std::cin>>number;
+    std::cout<<factorial(number)<<std::endl;
+    return 0;
+}*/
+/*void range(std::vector<int> &ive,int& a) //  ????  用void可以空间和效率，用引用和指针直接改变实参，代码存在的问题在哪里,递归算法水平不足
+{
+   while(a>0)
+   {
+       ive.push_back(a);
+       a--;
+   }
+
+   for (int i = 0; i < ive.size(); i++)
+        {
+            std::cout << ive[i] << std::endl;
+        }
+
+
+}
+int main()
+{
+    int number;
+    std::cin >> number;
+    std::vector<int> ice;
+    range(ice, number);
+    return 0;
+
+}*/
