@@ -1,0 +1,55 @@
+#include <iostream>
+class vision_exploit
+{
+public:
+    vision_exploit()=default;
+    vision_exploit(const std::string &s,const int &a1,const int &a2,const int &a3,const int &a4,const double &a5,const double &a6):data_interface(s),price(a1),resolution_ratio(a2*a3),frame_data(a4),pixel_col(a5),pixel_raw(a6)
+    {};
+    vision_exploit (const vision_exploit& a7)
+    {
+        pixel_raw=a7.pixel_raw;
+        pixel_col=a7.pixel_col;
+    }
+    /*vision_exploit::vision_exploit(double r)
+    {
+      pixel_col=r;
+      pixel_raw=4.8;
+    }*/
+    vision_exploit &operator=(const vision_exploit &rhs)
+    {
+        if(this==&rhs)
+        {
+            return *this;
+        }
+        this->pixel_col=rhs.pixel_col;
+        this->pixel_raw=rhs.pixel_raw;
+        return *this;
+    }
+    double  resolution();
+private:
+double pixel_col;
+double pixel_raw;
+int resolution_ratio;
+int frame_data;
+std::string data_interface;
+int price;
+};
+  double vision_exploit::resolution()
+{  pixel_raw=5.2;
+pixel_col=4.8;
+return  pixel_raw*pixel_col;
+}
+
+
+int main()
+{   vision_exploit  CAMERA(" usb 3.0",1,640,480,860,4.8,4.8);//一般构造函数
+    vision_exploit CAMERA2(CAMERA);//拷贝构造
+    vision_exploit CAMERA3;
+    /*CAMERA=5.2;类型转化???*/
+    CAMERA3=CAMERA;//运算符重载
+   vision_exploit CAMERA4=CAMERA;//拷贝构造
+   vision_exploit CAMERA5;
+  std::cout<< CAMERA5.resolution()<<std::endl;
+
+    return 0;
+}
