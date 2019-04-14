@@ -1,0 +1,92 @@
+x1=-10*sqrt(3);x2=10*sqrt(3);x3=0;
+y1=-10;y2=-10;y3=20;
+a=sqrt((x2-x3)^2+(y2-y3)^2);
+b=sqrt((x1-x3)^2+(y1-y3)^2);
+c=sqrt((x1-x2)^2+(y1-y2)^2);
+triangle_x=[x1,x2,x3,x1];
+triangle_y=[y1,y2,y3,y1];
+x=round((rand(1,500)*40)-20);
+y=round((rand(1,500)*40)-20);
+A(:,1)=x;
+A(:,2)=y;
+p=(a+b+c)/2;
+S=sqrt(p*(p-a)*(p-b)*(p-c));
+B=zeros(500,2);
+j=1;
+x12=10*sqrt(3);
+y12=30;
+x23=20*sqrt(3);
+y23=0;
+x13=-10*sqrt(3);
+y13=30;
+for i= 1:500
+     
+      if (  (( x12 * (y(i)+10) -y12 * (x(i)+10*sqrt(3)) )<0 )    &&   ((  x23*(y(i)+10)-y23* (x(i)+10*sqrt(3)))>0 ) &&( ( x13*(y(i)+10)-y13*(x(i)-10*sqrt(3)))> 0) )
+             
+              B(j,1)=A(i,1);
+              B(j,2)=A(i,2);
+              j=j+1;
+      end%Ãæ»ý·¨ÈÃÃæ»ýÏàµÈ£¬ÏòÁ¿·¨ÅÐ¶Ï
+     
+end
+ 
+x_fit=B(:,1);
+y_fit=B(:,2);
+q=1;
+for w=1:500
+    if(x_fit(q)==0&&y_fit(q)==0)
+        break;
+    else 
+        q=q+1;
+    end
+end
+l1=zeros(1,q);
+l2=zeros(1,q);
+l3=zeros(1,q);
+p1=zeros(1,q);
+p2=zeros(1,q);
+p3=zeros(1,q);
+k1=zeros(1,q);
+k2=zeros(1,q);
+k3=zeros(1,q);
+cov=zeros(1,q);
+B_fit=zeros(q,2);
+for d=1:q
+    B_fit(d,1)=B(d,1);
+    B_fit(d,2)=B(d,2);
+end
+B_fit;
+x_fit2=B_fit(:,1);
+y_fit2=B_fit(:,2);
+for i=1:q
+     l1(1,i) = sqrt((B_fit(i,1)-x1)^2+((B_fit(i,2)-y1))^2);
+      l2(1,i) = sqrt((B_fit(i,1)-x2)^2+((B_fit(i,2)-y2))^2);
+      l3 (1,i)= sqrt((B_fit(i,1)-x3)^2+((B_fit(i,2)-y3))^2);
+      p1(1,i)=(l2(1,i)+l3(1,i)+a)/2;
+      p2(1,i)=(l1(1,i)+l3(1,i)+b)/2;
+      p3(1,i)=(l1(1,i)+l2(1,i)+c)/2;
+      k1(1,i)=(sqrt(p1(1,i)*(p1(1,i)-a)*(p1(1,i)-l2(1,i))*(p1(1,i)-l3(1,i))))/S;
+      k2(1,i)=(sqrt(p2(1,i)*(p2(1,i)-b)*(p2(1,i)-l3(1,i))*(p2(1,i)-l1(1,i))))/S;
+      k3(1,i)=(sqrt(p3(1,i)*(p3(1,i)-c)*(p3(1,i)-l1(1,i))*(p3(1,i)-l2(1,i))))/S;
+    cov(1,i)=(k1(1,i))^2+(k2(1,i))^2+(k3(1,i))^2;
+end
+ 
+cov_transfer=cov';
+[X_fit,Y_fit]=meshgrid(min(x_fit2):1:max(x_fit2),min(y_fit2):1:max(y_fit2));%Éú³ÉÍø¸ñ
+Z=griddata(x_fit2,y_fit2,cov_transfer,X_fit,Y_fit,'v4');%²åÖµ
+figure(1);
+contourf(X_fit,Y_fit,Z) %µÈ¸ßÏßÍ¼
+figure(2);
+surf(X_fit,Y_fit,Z)%ÈýÎ¬ÇúÃæ
+figure(3);
+patch(triangle_x,triangle_y,'b','FaceAlpha',0);
+hold on;
+ axis([-20 20 -20 20]);
+ plot(x_fit2,y_fit2,'*r');
+ for   m=1:q
+     u=num2str(m);
+     text(x_fit2(m),y_fit2(m),u);
+ end
+ hold off;
+ figure(4)
+ scatter3(x_fit2,y_fit2,cov,'k');
